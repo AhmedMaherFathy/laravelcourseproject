@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     public function index(){
-        return view('posts',[
-            'posts'=>Post::all(),
+        $posts = Post::all();
+        return view('dashboard.posts.list-posts',[
+            'posts' => $posts
         ]);
     }
 
