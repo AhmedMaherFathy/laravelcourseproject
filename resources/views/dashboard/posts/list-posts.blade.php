@@ -3,9 +3,20 @@
     <x-page-header title="List All Posts" />
 @endsection
 @section('content')
+@if(Session::has('message'))
+<p class="alert alert-success">{{ Session::get('message') }}</p>
+@endif
+
+@if(Session::has('edit'))
+<p class="alert alert-info">{{ Session::get('edit') }}</p>
+@endif
+
+@if(Session::has('delete'))
+<p class="alert alert-danger">{{ Session::get('delete') }}</p>
+@endif
     <div class="card">
         <div class="card-header">
-            <button class="btn btn-success">Add new Post</button>
+            <a href="{{route('create-post')}}" class="btn btn-success">Add new Post</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -43,18 +54,15 @@
                                         <img src="{{asset($post->image)}}" style="width: 150px" alt="">
                                     </td>
                                     <td>
-                                        <button class="btn btn-info">Edit</button>
-                                        <button class="btn btn-danger ml-2">Delete</button>
+                                        <a href="{{route('edit.post',$post->id)}}" class="btn btn-info">Edit</a>
+                                        <a href="{{route('delete.post',$post->id)}}" class="btn btn-danger ml-2">Delete</a>
                                     </td>
                                 </tr>
                                @endforeach
-                            
-                            </tbody>
-                           
+                            </tbody>     
                         </table>
                     </div>
                 </div>
-              
             </div>
         </div>
         <!-- /.card-body -->

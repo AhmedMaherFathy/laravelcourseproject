@@ -58,6 +58,15 @@
                             </li>
 
                             <li class="nav-item">
+                                <a href="{{route('admin.users.index')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>                                           
+                                     <p>
+                                       Users
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a href="{{route('posts.index')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>                                           
                                      <p>
@@ -65,6 +74,8 @@
                                     </p>
                                 </a>
                             </li>
+
+
                             
                         </ul>
                     </nav>
