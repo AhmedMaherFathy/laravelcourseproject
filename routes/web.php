@@ -54,3 +54,7 @@ Route::post('/login' , [AuthController::class,'login'])->name('login');
 Route::get('/register' , [AuthController::class,'getRegestrationPage'])->name('get-register-page');
 Route::post('/register' , [AuthController::class,'register'])->name('register');
 
+
+Route::prefix('user')->name('user.')->controller(UserController::class)->group(function(){
+    Route::get('/login','index');
+});
